@@ -27,4 +27,9 @@ class AdminController extends Controller
         $data->save();
         return redirect()->back()->with('message','Product is Uploaded');
     }
+
+    public function showProduct(){
+        $data = Product::paginate(8);
+        return view('admin.show-product',compact('data'));
+    }
 }

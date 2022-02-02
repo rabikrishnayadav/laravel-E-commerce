@@ -33,3 +33,5 @@ Route::get('/contact-us',function(){
 Route::get('/product',[AdminController::class,'product'])->name('product');
 Route::post('/upload-product',[AdminController::class,'uploadProduct'])->name('upload_product');
 
+Route::get('/show-product',[AdminController::class,'showProduct'])->name('show-product');
+
