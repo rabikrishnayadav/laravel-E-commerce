@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,7 @@ Route::get('/about-us',function(){
 Route::get('/contact-us',function(){
     return view('user.contact-us');
 })->name('contact-page');
+
+Route::get('/product',[AdminController::class,'product'])->name('product');
+Route::post('/upload-product',[AdminController::class,'uploadProduct'])->name('upload_product');
+
