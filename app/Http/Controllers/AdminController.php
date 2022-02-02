@@ -40,4 +40,32 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Product is Deleted');
 
     }
+
+    public function updateProduct($id){
+
+        $data = Product::find($id);
+        return view('admin.update-product',compact('data'));
+    }
+
+    public function editProduct(Request $request, $id){
+
+        $data = Product::find($id);
+
+        $data->title = $request->title;
+        $data->price = $request->price;
+        $data->description = $request->desc;
+        $data->quantity = $request->quantity;
+
+        $image = $request->product_image;
+        if ($image) {
+        $imageNewName = time().'.'.$image->getClientOriginalExtension();
+        $request->product_image->move('images/product_image',$imageNewName);
+
+        $data->image = $imageNewName;
+        }
+
+        $data->save();
+        return redirect()->back()->with('message','Product is Updated');
+
+    }
 }

@@ -51,6 +51,7 @@
 						<td>{{$product->price}}</td>
 						<td>{{$product->quantity}}</td>
 						<td><a href="images/product_image/{{$product->image}}"><img src="images/product_image/{{$product->image}}"></a></td>
+						<td><a href="{{url('update_product',$product->id)}}" class="btn btn-primary">Update</a></td>
 						<td><a href="{{url('delete_product',$product->id)}}" class="btn btn-danger">Delete</a></td>
 					</tr>
 					@endforeach
