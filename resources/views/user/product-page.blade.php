@@ -25,6 +25,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="filters">
+                            <form class="form-inline" style="float:right;" action="{{url('search')}}" method="get">
+                                @csrf
+                                <input type="search" name="search" placeholder="search product" value="" class="m-2">
+                                <input type="submit" name="" value="Search" class="btn btn-success">
+                            </form>
                             <ul>
                                 <li class="active" data-filter="*">All Products</li>
                                 <li data-filter=".des">Featured</li>
@@ -60,13 +65,11 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <ul class="pages">
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                        </ul>
+                        @if(method_exists($data,'links'))
+                        <div>
+                            {!! $data->links() !!}
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

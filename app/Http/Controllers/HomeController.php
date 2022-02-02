@@ -29,4 +29,16 @@ class HomeController extends Controller
         return view('user.home',compact('data'));
         }
     }
+
+    public function searchProduct(Request $request){
+
+        $search = $request->search;
+
+        if ($search == '') {
+             $data = Product::all();
+        return view('user.product-page',compact('data'));
+        }
+        $data = Product::where('title','like','%'.$search.'%')->get();
+        return view('user.product-page',compact('data'));
+    }
 }
