@@ -17,7 +17,7 @@ class AdminController extends Controller
         
         $image = $request->product_image;
         $imageNewName = time().'.'.$image->getClientOriginalExtension();
-        $request->product_image->move('images.product_image',$imageNewName);
+        $request->product_image->move('images/product_image',$imageNewName);
 
         $data->image = $imageNewName;
         $data->title = $request->title;
