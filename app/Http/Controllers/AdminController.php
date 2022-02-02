@@ -68,4 +68,10 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Product is Updated');
 
     }
+
+    public function productPage(){
+
+        $data = Product::all();
+        return view('user.product-page',compact('data'));
+    }
 }
