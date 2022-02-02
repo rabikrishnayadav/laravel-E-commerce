@@ -35,3 +35,5 @@ Route::post('/upload-product',[AdminController::class,'uploadProduct'])->name('u
 
 Route::get('/show-product',[AdminController::class,'showProduct'])->name('show-product');
 
+Route::get('/delete_product/{id}',[AdminController::class,'deleteProduct']);
+

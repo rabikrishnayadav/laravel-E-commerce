@@ -32,4 +32,12 @@ class AdminController extends Controller
         $data = Product::paginate(8);
         return view('admin.show-product',compact('data'));
     }
+
+    public function deleteProduct($id){
+
+        $data = Product::find($id);
+        $data->delete();
+        return redirect()->back()->with('message','Product is Deleted');
+
+    }
 }

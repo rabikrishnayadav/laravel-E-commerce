@@ -26,6 +26,12 @@
 	<!-- partial -->
 	<div class="container-fluid page-body-wrapper">
 		<div class="container pt-5" align="center">
+			@if(session()->has('message'))
+					<div class="alert alert-success">
+						{{session()->get('message')}}
+						<button type="button" class="close" data-dismiss="alert">X</button>
+					</div>
+					@endif
 			<table class="table table-bordered table-hover table-striped table-responsive-sm text-center">
 				<thead class="text-dark font-weight-bold">
 					<tr>
@@ -34,6 +40,7 @@
 						<th>Price</th>
 						<th>Quantity</th>
 						<th>Image</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody class="table-dark">
@@ -44,6 +51,7 @@
 						<td>{{$product->price}}</td>
 						<td>{{$product->quantity}}</td>
 						<td><a href="images/product_image/{{$product->image}}"><img src="images/product_image/{{$product->image}}"></a></td>
+						<td><a href="{{url('delete_product',$product->id)}}" class="btn btn-danger">Delete</a></td>
 					</tr>
 					@endforeach
 				</tbody>
