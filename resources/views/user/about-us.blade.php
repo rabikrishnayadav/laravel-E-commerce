@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-@include('user.css')
-</head>
-<body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
+  <head>
+    @include('user.css')
+  </head>
+  <body>
     <!-- Header -->
     @include('user.header')
-
     <!-- Page Content -->
     <div class="page-heading about-heading header-text">
       <div class="container">
@@ -31,8 +19,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="best-features about-features">
       <div class="container">
         <div class="row">
@@ -61,7 +47,6 @@
         </div>
       </div>
     </div>
-
     
     <div class="team-members">
       <div class="container">
@@ -206,8 +191,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="services">
       <div class="container">
         <div class="row">
@@ -250,9 +233,8 @@
         </div>
       </div>
     </div>
-
-@include('user.happy-client')
-@include('user.footer')
-@include('user.script')
-</body>
+    @include('user.happy-client')
+    @include('user.footer')
+    @include('user.script')
+  </body>
 </html>

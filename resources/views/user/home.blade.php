@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-@include('user.css')
-</head>
-<body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
+  <head>
+    @include('user.css')
+  </head>
+  <body>
     <!-- Header -->
     @include('user.header')
-
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     <div class="banner header-text">
@@ -43,9 +31,7 @@
       </div>
     </div>
     <!-- Banner Ends Here -->
-
     @include('user.latest-product')
-
     <div class="best-features">
       <div class="container">
         <div class="row">
@@ -95,8 +81,8 @@
         </div>
       </div>
     </div>
-@include('user.happy-client')
-@include('user.footer')
-@include('user.script')
-</body>
+    @include('user.happy-client')
+    @include('user.footer')
+    @include('user.script')
+  </body>
 </html>

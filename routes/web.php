@@ -30,6 +30,10 @@ Route::get('/contact-us',function(){
     return view('user.contact-us');
 })->name('contact-page');
 
+Route::get('/product-page',function(){
+    return view('user.product-page');
+})->name('product-page');
+
 Route::get('/product',[AdminController::class,'product'])->name('product');
 Route::post('/upload-product',[AdminController::class,'uploadProduct'])->name('upload_product');
 
