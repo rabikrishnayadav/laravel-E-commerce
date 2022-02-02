@@ -19,16 +19,21 @@
                 </div>
             </div>
         </div>
-        
         <div class="products">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{session()->get('message')}}
+                            <button type="button" class="close" data-dismiss="alert">X</button>
+                        </div>
+                        @endif
                         <div class="filters">
                             <form class="form-inline" style="float:right;" action="{{url('search')}}" method="get">
                                 @csrf
                                 <input type="search" name="search" placeholder="search product" value="" class="m-2">
-                                <input type="submit" name="" value="Search" class="btn btn-success">
+                                <input type="submit" name="" value="Search" class="btn bg-primary text-light">
                             </form>
                             <ul>
                                 <li class="active" data-filter="*">All Products</li>
@@ -49,6 +54,11 @@
                                             <a href="#"><h4>{{$product->title}}</h4></a>
                                             <h6>Rs.{{$product->price}}/-</h6>
                                             <p>{{$product->description}}</p>
+                                            <form method="post" action="{{url('addcart',$product->id)}}">
+                                                @csrf
+                                                <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:100px;"><br>
+                                                <input type="submit" class="btn btn-primary" value="Add Cart" style="float:left;">
+                                            </form>
                                             <ul class="stars">
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>

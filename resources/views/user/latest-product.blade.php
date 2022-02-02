@@ -4,7 +4,13 @@
       <div class="col-md-12">
         <div class="section-heading">
           <h2>Latest Products</h2>
-          <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
+          @if(session()->has('message'))
+          <div class="alert alert-success">
+            {{session()->get('message')}}
+            <button type="button" class="close" data-dismiss="alert">X</button>
+          </div>
+          @endif
+          <a href="{{route('product-page')}}">view all products <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
       @foreach($data as $product)
@@ -15,6 +21,11 @@
             <a href="#"><h4>{{$product->title}}</h4></a>
             <h6>Rs.{{$product->price}}/-</h6>
             <p>{{$product->description}}</p>
+            <form method="post" action="{{url('addcart',$product->id)}}">
+              @csrf
+              <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:100px;"><br>
+              <input type="submit" class="btn bg-primary text-light" value="Add Cart" style="float:left;">
+            </form>
             <ul class="stars">
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
@@ -27,9 +38,11 @@
         </div>
       </div>
       @endforeach
+      @if(method_exists($data,'links'))
       <div class="d-flex justify-content-center ">
         {!! $data->links() !!}
       </div>
+      @endif
     </div>
   </div>
 </div>
