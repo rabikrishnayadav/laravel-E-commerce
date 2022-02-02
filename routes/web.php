@@ -20,3 +20,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/redirect',[HomeController::class,'redirect']);
 
 Route::get('/',[HomeController::class,'index']);
+
+Route::get('/about-us',function(){
+    return view('user.about-us');
+})->name('about-page');
+
+Route::get('/contact-us',function(){
+    return view('user.contact-us');
+})->name('contact-page');

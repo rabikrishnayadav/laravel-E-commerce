@@ -95,6 +95,7 @@
         </div>
       </div>
     </div>
+@include('user.happy-client')
 @include('user.footer')
 @include('user.script')
 </body>
