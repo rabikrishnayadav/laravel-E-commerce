@@ -24,21 +24,29 @@
             <th>Action</th>
           </tr>
         </thead>
+        <form method="post" action="{{url('order')}}">
+          @csrf
         <tbody>
           @foreach($cart as $data)
           <tr>
-            <td>{{$data->product_title}}</td>
-            <td>{{$data->quantity}}</td>
-            <td>{{$data->price}}</td>
+            <td>
+              <input type="text" name="productname[]" value="{{$data->product_title}}" hidden>
+              {{$data->product_title}}</td>
+            <td>
+              <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden>
+              {{$data->quantity}}</td>
+            <td>
+              <input type="text" name="price[]" value="{{$data->price}}" hidden>
+              {{$data->price}}</td>
             <td><a href="{{url('delete-cart-item',$data->id)}}" class="btn btn-danger">Cancel</a></td>
           </tr>
           @endforeach
         </tbody>
+        
       </table>
+      <button class="btn btn-success">Confirm Order</button>
+      </form>
     </div>
-    
-    
-    
     @include('user.script')
   </body>
 </html>
