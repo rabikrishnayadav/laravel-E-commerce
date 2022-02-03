@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -73,5 +74,19 @@ class AdminController extends Controller
 
         $data = Product::all();
         return view('user.product-page',compact('data'));
+    }
+
+    public function showOrder(){
+
+        $order = order::paginate(10);
+        return view('admin.show-order',compact('order'));
+    }
+
+    public function orderStatus($id){
+
+        $order = order::find($id);
+        $order->status = 'Delivered';
+        $order->save();
+        return redirect()->back();
     }
 }
