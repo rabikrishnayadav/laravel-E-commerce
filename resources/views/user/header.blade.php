@@ -33,6 +33,9 @@
           <li class="nav-item">
             @if (Route::has('login'))
             @auth
+            <li class="nav-item">
+            <a class="nav-link" href="{{url('show-cart')}}">Cart[{{$count}}]</a>
+            </li>
             <x-app-layout></x-app-layout>
             @else
             <li><a class="nav-link" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
